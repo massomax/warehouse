@@ -38,7 +38,7 @@ const initialState: WarehouseState = {
 export const fetchWarehouses = createAsyncThunk<Warehouse[]>(
     'warehouses/fetch',
     async () => {
-      const response = await axios.get('/api/warehouses');
+      const response = await axios.get('http://localhost:5000/api/warehouses');
       return response.data;
     }
   );

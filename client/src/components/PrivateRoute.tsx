@@ -1,11 +1,13 @@
-import { useSelector } from 'react-redux';
 import { Navigate, Outlet } from 'react-router-dom';
-import { RootState } from '../store/store';
+import { useAppSelector } from '../hooks';
 
 const PrivateRoute = () => {
-  const { token } = useSelector((state: RootState) => state.auth);
-  console.log('[DEBUG] PrivateRoute token:', token);
-  return token ? <Outlet /> : <Navigate to="/login" replace />;
+  const { token, user } = useAppSelector((state) => state.auth);
+  
+  if (!token) return <Navigate to="/login" replace />;
+  if (user?.role !== 'manager') return <Navigate to="/" replace />; // Добавьте эту проверку
+  
+  return <Outlet />;
 };
 
 export default PrivateRoute;
