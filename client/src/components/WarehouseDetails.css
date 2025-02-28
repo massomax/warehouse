@@ -1,0 +1,36 @@
+/* client/src/components/WarehouseDetails.css */
+.warehouse-details {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .content {
+    display: grid;
+    gap: 2rem;
+  }
+  
+  .items-list {
+    display: grid;
+    gap: 1rem;
+  }
+  
+  .item-card {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .btn-back {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: #2563eb;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 2rem;
+  }

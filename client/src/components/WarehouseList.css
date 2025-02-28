@@ -1,0 +1,60 @@
+.warehouse-list {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .card h3 {
+    margin: 0 0 1rem 0;
+    color: #2563eb;
+  }
+  
+  .stats {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    color: #666;
+  }
+  
+  .btn-primary, .btn-secondary {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+  
+  .btn-primary {
+    background: #2563eb;
+    color: white;
+  }
+  
+  .btn-secondary {
+    border: 1px solid #2563eb;
+    color: #2563eb;
+  }
+  
+  .loader {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+  }

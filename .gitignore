@@ -1,0 +1,13 @@
+# Для server/ (если это Node.js)
+node_modules/
+.env
+*.log
+
+# Для client/ (если это React/Vue)
+dist/
+build/
+.cache
+
+# Общее
+.DS_Store
+*.tmp
