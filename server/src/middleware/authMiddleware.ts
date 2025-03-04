@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction } from 'express';
+import { Request, Response, NextFunction, RequestHandler } from 'express';
 import jwt from 'jsonwebtoken';
 import User, { IUser } from '../models/User';
 
@@ -15,7 +15,7 @@ interface JwtPayload {
   role: string;
 }
 
-export const protect = async (
+export const protect: RequestHandler = async (
   req: Request,
   res: Response,
   next: NextFunction
