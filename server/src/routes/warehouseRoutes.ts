@@ -1,28 +1,23 @@
 import { Router } from 'express';
-import { protect, managerOnly } from '../middleware/authMiddleware';
-import { createWarehouse, getWarehouses } from '../controllers/warehouseController';
-import { RequestHandler } from 'express';
-
+import { protect } from '../middleware/authMiddleware';
+import { getWarehouses } from '../controllers/warehouseController';
+import type { RequestHandler } from 'express';
 
 const router = Router();
 
-router.route('/')
-  .post(protect, managerOnly, createWarehouse)
+const managerOnly: RequestHandler = (req, res, next) => {
+  if (req.user?.role !== 'manager') {
+    res.status(403).json({ error: "Доступ запрещен" });
+    return;
+  }
+  next();
+};
 
+router.get(
+  '/',
+  protect,
+  managerOnly,
+  getWarehouses
+);
 
-const managerOnlyMiddleware: RequestHandler = (req, res, next) => {
-    if (req.user?.role !== 'manager') {
-      res.status(403).json({ error: "Доступ запрещен" });
-      return;
-    }
-    next();
-  };
-  
-  router.get(
-    '/',
-    protect,
-    managerOnlyMiddleware,
-    getWarehouses
-  );
-
-  export default router;
+export default router;
